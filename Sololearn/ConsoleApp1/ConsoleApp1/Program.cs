@@ -23,12 +23,36 @@ namespace ConsoleApp1
             //post.Text = postText;
             //post.ShowPost();
 
-            int[] arr = new int[5];
-            for (int i = 0; i < 5; i++)
+            //int[] arr = new int[5];
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    arr[i] = Convert.ToInt32(Console.ReadLine());
+            //}
+            //Console.WriteLine(arr.Min() + arr.Max());
+
+            int discount = Convert.ToInt32(Console.ReadLine());
+
+            Dictionary<string, int> coffee = new Dictionary<string, int>();
+            coffee.Add("Americano", 50);
+            coffee.Add("Latte", 70);
+            coffee.Add("Flat White", 60);
+            coffee.Add("Espresso", 60);
+            coffee.Add("Cappuccino", 80);
+            coffee.Add("Mocha", 90);
+
+            var name = coffee.Keys.ToArray();
+            
+            foreach (var item in name)
             {
-                arr[i] = Convert.ToInt32(Console.ReadLine());
+                if (coffee.ContainsKey(item))
+                {
+                    var price = coffee[item];
+                    double newPrice = discount/100;
+  
+                    price = price / 100 * discount;
+                    Console.WriteLine(item + ": " + price);
+                }
             }
-            Console.WriteLine(arr.Min() + arr.Max());
 
             Console.ReadLine();
         }
