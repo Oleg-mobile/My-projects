@@ -47,10 +47,9 @@ namespace ConsoleApp1
                 if (coffee.ContainsKey(item))
                 {
                     var price = coffee[item];
-                    double newPrice = discount/100;
-  
-                    price = price / 100 * discount;
-                    Console.WriteLine(item + ": " + price);
+                    int newPrice = price - price * discount / 100;
+
+                    Console.WriteLine(item + ": " + newPrice);
                 }
             }
 
