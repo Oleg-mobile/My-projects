@@ -20,12 +20,14 @@ namespace Linq2DBSamples
         public string Description { get; set; }
     }
 
+    // контекс - аналог точки входа
     public class Northwind : DataConnection
     {
+        // конструктор - определяет как делается подключение
         public Northwind() : base("Northwind")  // имя строки подключения в конф. файле
         { }
 
-        // свойство для доступа
+        // свойство для доступа, дженеринг интерфейс, возвращает категории
         public ITable<Category> Categories { get { return GetTable<Category>(); } }  // для удобства обращения
     }
 

@@ -16,8 +16,7 @@ namespace DapperSamples
     [TestClass]
     public class UnitTest1
     {
-        //public string connectionString = "Server=(local);Database=Northwind;Trusted_Connection=true";
-        public string connectionString = "Data Source=(localdb);Initial Catalog=Northwind;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public string connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog = Northwind; Integrated Security = True; Connect Timeout = 30";
 
         [TestMethod]
         public void TestMethod1()

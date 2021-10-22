@@ -9,6 +9,11 @@ namespace EFSamples
         [TestMethod]
         public void TestMethod1()
         {
+            using (var context = new Model1())
+            {
+                foreach (var cat in context.Categories)
+                    Console.WriteLine("{0} {1} | {2}", cat.CategoryID, cat.CategoryName, cat.Description);
+            }
         }
     }
 }
