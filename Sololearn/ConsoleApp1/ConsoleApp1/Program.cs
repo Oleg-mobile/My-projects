@@ -30,28 +30,30 @@ namespace ConsoleApp1
             //}
             //Console.WriteLine(arr.Min() + arr.Max());
 
-            int discount = Convert.ToInt32(Console.ReadLine());
+            //int discount = Convert.ToInt32(Console.ReadLine());
 
-            Dictionary<string, int> coffee = new Dictionary<string, int>();
-            coffee.Add("Americano", 50);
-            coffee.Add("Latte", 70);
-            coffee.Add("Flat White", 60);
-            coffee.Add("Espresso", 60);
-            coffee.Add("Cappuccino", 80);
-            coffee.Add("Mocha", 90);
+            //Dictionary<string, int> coffee = new Dictionary<string, int>();
+            //coffee.Add("Americano", 50);
+            //coffee.Add("Latte", 70);
+            //coffee.Add("Flat White", 60);
+            //coffee.Add("Espresso", 60);
+            //coffee.Add("Cappuccino", 80);
+            //coffee.Add("Mocha", 90);
 
-            var name = coffee.Keys.ToArray();
-            
-            foreach (var item in name)
-            {
-                if (coffee.ContainsKey(item))
-                {
-                    var price = coffee[item];
-                    int newPrice = price - price * discount / 100;
+            //var name = coffee.Keys.ToArray();
 
-                    Console.WriteLine(item + ": " + newPrice);
-                }
-            }
+            //foreach (var item in name)
+            //{
+            //    if (coffee.ContainsKey(item))
+            //    {
+            //        var price = coffee[item];
+            //        int newPrice = price - price * discount / 100;
+
+            //        Console.WriteLine(item + ": " + newPrice);
+            //    }
+            //}
+
+            //Enumerable.Range(1, 10).ForEach(x => Console.Write("Привет!)"));
 
             Console.ReadLine();
         }
