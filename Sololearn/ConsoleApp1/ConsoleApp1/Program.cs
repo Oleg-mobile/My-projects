@@ -55,6 +55,9 @@ namespace ConsoleApp1
 
             //Enumerable.Range(1, 10).ForEach(x => Console.Write("Привет!)"));
 
+            Samp2.G(); // class
+            Samp2.H(); // H
+
             Console.ReadLine();
         }
 
@@ -89,6 +92,73 @@ namespace ConsoleApp1
             //return levels + Points(levels - 1);
 
             return (levels == 0) ? 0: levels + Points(levels - 1);
+        }
+
+    }
+    public static class Samp1
+    {
+        static void F()
+        {
+            i = 1;
+        }
+        static int i = 0;
+    }
+
+    public static class Samp2
+    {
+        static string who = "class";
+
+        public static void F()
+        {
+            string who = "F";
+        }
+
+        public static void G()
+        {
+            F();
+            Console.WriteLine(who);
+        }
+
+        public static void H()
+        {
+            string who = "H";
+            F();
+            Console.WriteLine(who);
+        }
+    }
+
+    public static class Samp3
+    {
+        //static string who = "class";
+        //static void Mixed()
+        //{
+        //    Console.WriteLine(who + " ");  // переменная не инициализирована!!!
+        //    string who = "Mixed";
+        //    Console.WriteLine(who);
+        //}
+    }
+
+    public static class Samp4
+    {
+        static void M1()
+        {
+            int i = 0;
+            {
+                int i = 1;  // имя используется
+            }
+        }
+        static void M2(int i)
+        {
+            int i = 0;     // имя используется
+        }
+        static void M3()
+        {
+            {
+                int i = 0;
+            }
+            {
+                int i = 1;
+            }
         }
     }
 }
