@@ -8,7 +8,7 @@ namespace ConsoleApp1
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             //int totalPrice = Convert.ToInt32(Console.ReadLine());
             //Console.WriteLine(Discount(totalPrice));
@@ -30,33 +30,74 @@ namespace ConsoleApp1
             //}
             //Console.WriteLine(arr.Min() + arr.Max());
 
-            int discount = Convert.ToInt32(Console.ReadLine());
+            //int discount = Convert.ToInt32(Console.ReadLine());
 
-            Dictionary<string, int> coffee = new Dictionary<string, int>();
-            coffee.Add("Americano", 50);
-            coffee.Add("Latte", 70);
-            coffee.Add("Flat White", 60);
-            coffee.Add("Espresso", 60);
-            coffee.Add("Cappuccino", 80);
-            coffee.Add("Mocha", 90);
+            //Dictionary<string, int> coffee = new Dictionary<string, int>();
+            //coffee.Add("Americano", 50);
+            //coffee.Add("Latte", 70);
+            //coffee.Add("Flat White", 60);
+            //coffee.Add("Espresso", 60);
+            //coffee.Add("Cappuccino", 80);
+            //coffee.Add("Mocka", 90);
 
-            var name = coffee.Keys.ToArray();
-            
-            foreach (var item in name)
-            {
-                if (coffee.ContainsKey(item))
-                {
-                    var price = coffee[item];
-                    int newPrice = price - price * discount / 100;
+            //var name = coffee.Keys.ToArray();
 
-                    Console.WriteLine(item + ": " + newPrice);
-                }
-            }
+            //foreach (var item in name)
+            //{
+            //    if (coffee.ContainsKey(item))
+            //    {
+            //        var price = coffee[item];
+            //        int newPrice = price - price * discount / 100;
+
+            //        Console.WriteLine(item + ": " + newPrice);
+            //    }
+            //}
+
+            string inpupString = "5*(7-4)";
+            if (IsStringCorrect(inpupString))
+                Console.WriteLine(GetSubStr(inpupString));
 
             Console.ReadLine();
         }
 
-        static int Discount(int price)  //  чена с учётом скидки
+        static bool IsStringCorrect(string inpStr)
+        {
+            int op = 0, cl = 0;
+            if (inpStr == null || inpStr == "") return false;
+
+            foreach (char ch in inpStr)
+            {
+                if (ch.Equals('(')) op++;
+                if (ch.Equals(')')) cl++;
+                //if (ch)
+            }
+            if (op != cl) return false;
+
+            return true;
+        }
+
+        static string GetSubStr(string inpStr)
+        {
+            string subStr = "";
+
+            for (int i = 0; i < inpStr.Length; i++)
+            {
+                if (inpStr[i].Equals(')'))
+                {
+                    for (int j = i - 1; j >= 0; j--)
+                    {
+                        if (inpStr[j].Equals('('))
+                        {
+                            subStr = inpStr.Substring(j + 1, i - j - 1);
+                        }
+                    }
+                }
+            }
+            return subStr;
+
+        }
+
+        static int Discount(int price)  //  цена с учётом скидки
         {
             if (price >= 10000)
                 return Convert.ToInt32(price - (0.2 * price));
